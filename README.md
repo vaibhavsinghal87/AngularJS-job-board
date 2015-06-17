@@ -1,2 +1,2 @@
 # AngularJS-job-board
-AngualarJS app
+Host the package on a local server to run.
