@@ -1,0 +1,55 @@
+<div class="row" id="search-box">
+	<h4>LIVE SEARCH</h4>
+	
+	<form class="form-inline">
+		<div class="form-group">
+			<label for="location">Location(e.g. Boston)</label>
+			<input type="text" class="form-control" id="location" ng-model="search.location">
+		</div>
+		<div class="form-group">
+			<label for="keyword">Keyword(e.g. Web Developer)</label>
+			<input type="text" class="form-control" id="keyword" ng-model="search.keywords">
+		</div>
+	</form>
+</div>
+
+<p class="search_result_txt">Search results for {{search.location}} <span ng-show='search.location!="" && search.keywords != ""'>and</span> {{search.keywords}}</p>
+
+<div class="row">
+	<div class="col-sm-8" id="jobs-table">
+		<table id="jobs-table" class="table">
+			<thead>
+				<tr>
+					<th>Location</th>
+					<th>Description</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="job in jobs | filter: {keywords: search.keywords, Location: search.location}">
+					<td><span class="location">{{job.Location}}</span></td>
+					<td><span class="text-wrap">{{job.description}}</span></td>
+					<td><button type="button" class="btn btn-default btn-sm" ng-click="viewClickHandler(job.id)">VIEW NOW</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="col-sm-4" id="contact-form">
+		<h4>CONTACT US</h4>
+		<form>
+			<div class="form-group">
+				<label for="name">Name</label>
+				<input id="name" type="text" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="email">Email address</label>
+				<input id="email" type="email" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="comments">Comments</label>
+				<textarea id="comments" class="form-control" rows="5"></textarea>
+			</div>
+			<button type="submit" class="btn btn-default">SUBMIT</button>
+		</form>
+	</div>
+</div>
