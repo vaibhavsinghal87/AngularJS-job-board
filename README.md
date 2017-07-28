@@ -1,2 +1,3 @@
 # AngularJS-job-board
-Host the package on a local server to run.
+http://vaibhavsinghal87.github.io/AngularJS-job-board/#/jobs
+
